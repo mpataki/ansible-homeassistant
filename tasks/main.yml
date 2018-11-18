@@ -47,4 +47,3 @@
     owner: homeassistant
     group: homeassistant
   become: true
-
