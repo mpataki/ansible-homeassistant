@@ -10,6 +10,14 @@ Really this should work on any debian based system, but has been tested on a Ras
 
 - `homeassistant_config_dir`: This is the directory on your local machine where you're storing your home assistant config files. The files in the provided directory will be the ones copied to the home assistant host when the role is appled.
 
+Specifically, the following files will be copied from the provided `homeassistant_config_dir`:
+- `configuration.yaml`
+- `automations.yaml`
+- `groups.yaml`
+- `customize.yaml`
+- `secrets.yaml`
+- `scripts` (a directory holding any custom scripts your setup might use)
+
 ## Dependencies
 
 None.
