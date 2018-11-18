@@ -1,0 +1,50 @@
+---
+
+- name: ensure latest configuration yaml is present
+  copy:
+    src: {{ homeassistant_config_dir }}/configuration.yaml
+    dest: /home/homeassistant/.homeassistant/configuration.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: ensure latest automations yaml is present
+  copy:
+    src: {{ homeassistant_config_dir }}/automations.yaml
+    dest: /home/homeassistant/.homeassistant/automations.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: ensure latest groups yaml is present
+  copy:
+    src: {{ homeassistant_config_dir }}/groups.yaml
+    dest: /home/homeassistant/.homeassistant/groups.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: ensure latest customize yaml is present
+  copy:
+    src: {{ homeassistant_config_dir }}/customize.yaml
+    dest: /home/homeassistant/.homeassistant/customize.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: ensure latest secrets yaml is present
+  copy:
+    src: {{ homeassistant_config_dir }}/secrets.yaml
+    dest: /home/homeassistant/.homeassistant/secrets.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: ensure latest scripts are present
+  copy:
+    src: {{ homeassistant_config_dir }}/scripts
+    dest: /home/homeassistant/.homeassistant/scripts
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
