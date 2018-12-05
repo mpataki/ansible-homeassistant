@@ -40,6 +40,14 @@
     group: homeassistant
   become: true
 
+- name: ensure latest scripts yaml is present
+  copy:
+    src: "{{ homeassistant_config_dir }}/scripts.yaml"
+    dest: /home/homeassistant/.homeassistant/scritps.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
 - name: ensure latest scripts are present
   copy:
     src: "{{ homeassistant_config_dir }}/scripts"
