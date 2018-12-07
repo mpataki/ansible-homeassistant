@@ -51,7 +51,7 @@
 - name: ensure latest scripts are present
   copy:
     src: "{{ homeassistant_config_dir }}/scripts"
-    dest: /home/homeassistant/.homeassistant/scripts
+    dest: /home/homeassistant/.homeassistant
     owner: homeassistant
     group: homeassistant
   become: true
