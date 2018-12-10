@@ -63,3 +63,17 @@
     group: homeassistant
   become: true
 
+- name: ensure latest www files are present
+  copy:
+    src: "{{ homeassistant_config_dir }}/www"
+    dest: /home/homeassistant/.homeassistant
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: set www dir ownership
+  file:
+    path: /home/homeassistant/.homeassistant/www
+    owner: homeassistant
+    group: homeassistant
+  become: true
