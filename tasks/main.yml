@@ -1,5 +1,13 @@
 ---
 
+- name: ensure latest lovelace yaml is present
+  copy:
+    src: "{{ homeassistant_config_dir }}/ui-lovelace.yaml"
+    dest: /home/homeassistant/.homeassistant/ui-lovelace.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
 - name: ensure latest configuration yaml is present
   copy:
     src: "{{ homeassistant_config_dir }}/configuration.yaml"
