@@ -16,6 +16,14 @@
     group: homeassistant
   become: true
 
+- name: ensure latest themes yaml is present
+  copy:
+    src: "{{ homeassistant_config_dir }}/themes.yaml"
+    dest: /home/homeassistant/.homeassistant/themes.yaml
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
 - name: ensure latest automations yaml is present
   copy:
     src: "{{ homeassistant_config_dir }}/automations.yaml"
