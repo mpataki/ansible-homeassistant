@@ -75,7 +75,7 @@
 - name: check if scripts are present
   stat:
     path: /home/homeassistant/.homeassistant/scripts
-  register: stat_result
+  register: scripts_present
 
 - name: set scripts dir ownership
   file:
@@ -83,7 +83,7 @@
     owner: homeassistant
     group: homeassistant
   become: true
-  when: stat_result.stat.exists
+  when: scripts_present.stat.exists
 
 - name: ensure latest www files are present
   copy:
@@ -93,9 +93,15 @@
     group: homeassistant
   become: true
 
+- name: check if www is present
+  stat:
+    path: /home/homeassistant/.homeassistant/scripts
+  register: www_present
+
 - name: set www dir ownership
   file:
     path: /home/homeassistant/.homeassistant/www
     owner: homeassistant
     group: homeassistant
   become: true
+  when: www_present.stat.exists
