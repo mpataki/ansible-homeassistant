@@ -85,6 +85,27 @@
   become: true
   when: scripts_present.stat.exists
 
+- name: ensure latest python scripts are present
+  copy:
+    src: "{{ homeassistant_config_dir }}/python_scripts"
+    dest: /home/homeassistant/.homeassistant
+    owner: homeassistant
+    group: homeassistant
+  become: true
+
+- name: check if python scripts are present
+  stat:
+    path: /home/homeassistant/.homeassistant/python_scripts
+  register: python_scripts_present
+
+- name: set python scripts dir ownership
+  file:
+    path: /home/homeassistant/.homeassistant/python_scripts
+    owner: homeassistant
+    group: homeassistant
+  become: true
+  when: python_scripts_present.stat.exists
+
 - name: ensure latest www files are present
   copy:
     src: "{{ homeassistant_config_dir }}/www"
