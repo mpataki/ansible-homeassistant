@@ -1,5 +1,7 @@
 # ansible-homeassistant
 
+[![Build Status](https://travis-ci.org/mpataki/ansible-homeassistant.svg?branch=master)](https://travis-ci.org/mpataki/ansible-homeassistant)
+
 [Home Assistant](https://www.home-assistant.io/) is an open source home automation platform. This ansible role manages the various config files for home assistant which has a few benefits. It also provides a playbook for updating home assistant at your leasure.
 
 ## Requirements
