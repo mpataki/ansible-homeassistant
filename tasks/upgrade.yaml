@@ -1,0 +1,34 @@
+---
+
+- name: upgrade home assistant
+  hosts:
+    - pi
+  tasks:
+    - name: stop home assistant
+      service:
+        name: home-assistant@homeassistant
+        state: stopped
+      become: true
+
+    - name: update apt index
+      apt:
+        update_cache: yes
+      become: true
+
+    - name: upgrade all packages
+      apt:
+        upgrade: full
+      become: true
+
+    - name: update home assistant
+      command: hassbian-config upgrade homeassistant
+      become: true
+
+    - name: start home assistant
+      service:
+        name: home-assistant@homeassistant
+        state: started
+      become: true
+
+    - debug:
+        msg: It may take a moment for the UI to become available
