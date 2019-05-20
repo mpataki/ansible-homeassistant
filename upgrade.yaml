@@ -2,7 +2,7 @@
 
 - name: upgrade home assistant
   hosts:
-    - pi
+    - home-assistant
   tasks:
     - name: stop home assistant
       service:
