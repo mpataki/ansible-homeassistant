@@ -126,3 +126,25 @@
     group: homeassistant
   become: true
   when: www_present.stat.exists
+
+- name: install ffmpeg
+  package:
+    name: ffmpeg
+    state: present
+  become: true
+
+- name: install python deps
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python-dev
+    - pkg-config
+    - libavformat-dev
+    - libavcodec-dev
+    - libavdevice-dev
+    - libavutil-dev
+    - libswscale-dev
+    - libavresample-dev
+    - libavfilter-dev
+  become: true
